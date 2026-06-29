@@ -10,6 +10,7 @@ export interface Task {
   priority: Priority;
   completed: boolean;
   createdAt: string;
+  userId?: string;
 }
 
 export interface User {

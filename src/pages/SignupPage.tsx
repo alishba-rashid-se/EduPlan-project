@@ -72,10 +72,12 @@ export default function SignupPage() {
 
     setIsSubmitting(true);
     try {
-      const success = await signup(formData.name, formData.email, formData.password);
-      if (success) {
+      const result = await signup(formData.name, formData.email, formData.password);
+      if (result.success) {
         addToast('Account created successfully!', 'success');
         navigate('/dashboard');
+      } else {
+        setErrors({ email: result.error });
       }
     } catch {
       addToast('Failed to create account', 'error');

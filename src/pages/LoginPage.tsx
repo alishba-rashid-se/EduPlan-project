@@ -53,10 +53,12 @@ export default function LoginPage() {
 
     setIsSubmitting(true);
     try {
-      const success = await login(formData.email, formData.password);
-      if (success) {
+      const result = await login(formData.email, formData.password);
+      if (result.success) {
         addToast('Welcome back!', 'success');
         navigate('/dashboard');
+      } else {
+        setErrors({ email: result.error });
       }
     } catch {
       addToast('Failed to sign in', 'error');

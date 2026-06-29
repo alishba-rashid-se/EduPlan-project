@@ -21,8 +21,7 @@ export default function DashboardPage() {
   const today = new Date();
   const upcomingDeadlines = tasks
     .filter(t => !t.completed)
-    .sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime())
-    .slice(0, 3);
+    .sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
 
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
